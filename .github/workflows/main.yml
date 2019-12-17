@@ -12,11 +12,10 @@ jobs:
       uses: actions/checkout@master
       with:
         ref: master
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 2.2.108 # Replace with specific dotnet core versio
-    # dotnet build and publish
+    - name: Setup MSBuild.exe
+      uses: warrenbuckley/Setup-MSBuild@v1
+    - name: MSBuild
+      run: msbuild aspnetapp.csproj -p:Configuration=Release
     - uses: azure/login@v1
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}    
