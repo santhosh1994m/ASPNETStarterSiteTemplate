@@ -23,5 +23,5 @@ jobs:
         az webapp list --query "[?state=='Running']"
     - uses: azure/webapps-deploy@v1
       with: 
-        app-name: santhosh321
+        app-name: santhoshtest
         publish-profile: ${{ secrets.azureWebAppPublishProfile }}
